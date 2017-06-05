@@ -1,0 +1,35 @@
+<?php
+namespace Budget;
+
+use Zend\Router\Http\Literal;
+use Zend\ServiceManager\Factory\InvokableFactory;
+
+return [
+    'router' => [
+        'routes' => [
+            'user' => [
+                'type' => Literal::class,
+                'options' => [
+                    'route' => '/user',
+                    'defaults' => [
+                        'controller' => Controller\UserController::class,
+                        'action' => 'index',
+                    ],
+                ],
+            ],
+        ],
+    ],
+    'controllers' => [
+        'invokables' => [
+            Controller\UserController::class => Controller\UserController::class
+        ],
+    ],
+    'view_manager' => [
+        'display_not_found_reason' => true,
+        'display_exceptions' => true,
+        'doctype' => 'HTML5',
+        'template_path_stack' => [
+        __DIR__ . '/../view',
+        ],
+    ],
+];
