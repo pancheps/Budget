@@ -1,1 +1,6 @@
 <h1>Hola si como va</h1>
+<?php
+foreach ($users as $user) : ?>
+<p><?php echo $user->__get("username");?></p>
+
+<?php endforeach;

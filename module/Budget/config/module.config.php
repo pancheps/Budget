@@ -1,6 +1,7 @@
 <?php
 namespace Budget;
 
+use Budget\Controller\UserControllerFactory;
 use Zend\Router\Http\Literal;
 use Zend\ServiceManager\Factory\InvokableFactory;
 
@@ -39,7 +40,7 @@ return [
     ],
     'controllers' => [
         'factories' => [
-            Controller\UserController::class => InvokableFactory::class,
+            Controller\UserController::class => UserControllerFactory::class,
             Controller\MovementController::class => InvokableFactory::class,
         ],
     ],
@@ -47,8 +48,33 @@ return [
         'display_not_found_reason' => true,
         'display_exceptions' => true,
         'doctype' => 'HTML5',
+        'template_map' => [
+            'budget/user/index' => __DIR__ . '/../view/budget/user/index.phtml',
+            'budget/user/add' => __DIR__ . '/../view/budget/user/add.phtml',
+            'budget/user/edit' => __DIR__ . '/../view/budget/user/edit.phtml',
+            'budget/movement/index' => __DIR__ . '/../view/budget/movement/index.phtml',
+        ],
         'template_path_stack' => [
-        '/../view',
+        __DIR__ . '/../view',
         ],
     ],
+    'doctrine' => [
+        'driver' => [
+            __NAMESPACE__ . '_driver' => [
+                'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
+                'cache' => 'array',
+                'paths' => [
+                    __DIR__ . '/../../../library/User/Repository/Model' . __NAMESPACE__ . '/Entity',
+                    __DIR__ . '/../../../library/Catalog/Repository/Model' . __NAMESPACE__ . '/Entity',
+                    __DIR__ . '/../../../library/Movement/Repository/Model' . __NAMESPACE__ . '/Entity',
+                ],
+            ],
+            'orm_default' => [
+                'drivers' => [
+                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver',
+                ],
+            ],
+        ],
+    ],
+
 ];

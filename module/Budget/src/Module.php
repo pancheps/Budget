@@ -3,6 +3,7 @@ namespace Budget;
 
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
 use Zend\ModuleManager\Feature\ConfigProviderInterface;
+use Zend\EventManager\EventManager;
 
 class Module implements AutoloaderProviderInterface, ConfigProviderInterface
 {
@@ -21,4 +22,4 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface
             )
         );
     }
-}
+ }

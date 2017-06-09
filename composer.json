@@ -24,7 +24,14 @@
     "autoload": {
         "psr-4": {
             "Application\\": "module/Application/src/",
-            "Budget\\": "module/Budget/src/"
+            "Budget\\": "module/Budget/src/",
+            "User\\": "module/src/User/",
+            "Catalog\\": "module/src/Catalog/",
+            "Movement\\": "module/src/Movement/",
+            "Budget\\User\\": "library/User/",
+            "Budget\\Entity\\": "Entity/",
+            "Budget\\Form\\": "library/User/Form/",
+            "Budget\\Service\\": "module/Budget/src/Controller"
         }
     },
     "autoload-dev": {
