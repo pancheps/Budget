@@ -8,7 +8,7 @@ use Zend\Validator\Date;
 
 /**
  * Class User
- * @package User\Entity
+ * @package User
  *
  * @ORM\Table(name="user")
  */
@@ -36,29 +36,28 @@ class User
      * @ORM\Column(name="familyname", type="string", nullable="false", length=100)
      */
     protected $familyname;
-    /**
-     * @var bool
-     * @ORM\Column(name="isParent", type="bool", nullable="false")
-     */
-    protected $isParent;
-    /**
-     * @var DateTime
-     * @ORM\Column(name="birthdate", type="datetime", nullable="false")
-     */
-    protected $birthdate;
+//    /**
+//     * @var bool
+//     * @ORM\Column(name="isParent", type="bool", nullable="false")
+//     */
+//    protected $isParent;
+//    /**
+//     * @var DateTime
+//     * @ORM\Column(name="birthdate", type="datetime", nullable="false")
+//     */
+//    protected $birthdate;
 
-    public function __construct($id, $username, $password, $familyname, $isparent, $birthdate)
+    public function __construct()
     {
-        $this->id = $id;
-        $this->username = $username;
-        $this->password = $password;
-        $this->familyname = $familyname;
-        $this->isParent = $isparent;
-        $this->birthdate = $birthdate;
     }
 
     public function __get($name)
     {
         return $this->$name;
+    }
+
+    public function __set($name, $value)
+    {
+        $this->$name = $value;
     }
 }

@@ -6,7 +6,7 @@ use Budget\Service\UserService;
 use Interop\Container\ContainerInterface;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-use Budget\Entity\User;
+use Budget\User\Repository\Model\User;
 use Budget\Form\UserForm;
 
 class UserController extends AbstractActionController
